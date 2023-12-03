@@ -172,16 +172,16 @@ bool binarySearch(const Student *students, const int *indexArray, int n, const s
         int mid = left + (right - left) / 2;
         int studentIndex = indexArray[mid];
 
-        if (students[studentIndex].lastName == searchLastName &&
-            students[studentIndex].specialty == searchSpecialty &&
-            students[studentIndex].course == searchCourse)
+        if (students[studentIndex].specialty == searchSpecialty &&
+            students[studentIndex].course == searchCourse &&
+            students[studentIndex].lastName == searchLastName)
         {
             return true;
         }
 
-        if (students[studentIndex].lastName < searchLastName ||
-            (students[studentIndex].lastName == searchLastName && students[studentIndex].specialty < searchSpecialty) ||
-            (students[studentIndex].lastName == searchLastName && students[studentIndex].specialty == searchSpecialty && students[studentIndex].course < searchCourse))
+        if (students[studentIndex].specialty < searchSpecialty ||
+            (students[studentIndex].specialty == searchSpecialty && students[studentIndex].course < searchCourse) ||
+            (students[studentIndex].specialty == searchSpecialty && students[studentIndex].course == searchCourse && students[studentIndex].lastName < searchLastName))
         {
             left = mid + 1;
         }
